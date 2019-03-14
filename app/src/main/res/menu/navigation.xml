@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/today_spiral"
+        android:icon="@drawable/today_spiral_icon"
+        android:title="@string/today_spiral" />
+
+    <item
+        android:id="@+id/saved_spiral"
+        android:icon="@drawable/saved_spiral"
+        android:title="@string/saved_spiral" />
+
+    <item
+        android:id="@+id/premium_quiz"
+        android:icon="@drawable/premium_quiz"
+        android:title="@string/premium_quiz" />
+
+    <item
+        android:id="@+id/spiral_profile"
+        android:icon="@drawable/spiral_profile"
+        android:title="@string/spiral_profile" />
+
+</menu>
