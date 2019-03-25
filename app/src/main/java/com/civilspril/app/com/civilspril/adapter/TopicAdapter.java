@@ -12,15 +12,21 @@ import android.widget.TextView;
 
 import com.civilspril.app.R;
 import com.civilspril.app.com.civilspril.activities.BaseActivity;
+import com.civilspril.app.com.civilspril.beans.Categories;
+import com.civilspril.app.com.civilspril.beans.CategoryList;
 import com.civilspril.app.com.civilspril.fragments.TodaySpiralDetailFragment;
 import com.civilspril.app.com.civilspril.fragments.TodaySpiralFragment;
+
+import java.util.ArrayList;
 
 public class TopicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String[] topic = {"Political","Social","Enviroment","IR","Science","Culture","Economy","History","Others"};
     private int[] image = {R.drawable.ic_political,R.drawable.ic_social,R.drawable.ic_enviroment,R.drawable.ic_ir,R.drawable.ic_science,R.drawable.ic_culture,R.drawable.ic_economy,R.drawable.ic_history,R.drawable.ic_others};
     private Context context;
-    public TopicAdapter(Context context){
+    private ArrayList<Categories> mCategoryList;
+    public TopicAdapter(Context context, ArrayList<Categories> mCategoryList){
         this.context = context;
+        this.mCategoryList = mCategoryList;
     }
     @NonNull
     @Override
@@ -32,14 +38,15 @@ public class TopicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ((MyViewHolder)viewHolder).txtview.setText(topic[i]);
+
+        ((MyViewHolder)viewHolder).txtview.setText(mCategoryList.get(i).getName());
         ((MyViewHolder)viewHolder).imageView.setBackgroundResource(image[i]);
 
     }
 
     @Override
     public int getItemCount() {
-        return topic.length;
+        return mCategoryList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

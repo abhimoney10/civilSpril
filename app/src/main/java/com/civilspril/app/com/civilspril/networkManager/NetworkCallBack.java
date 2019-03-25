@@ -5,5 +5,6 @@ import org.json.JSONObject;
 public interface NetworkCallBack {
 
     public void successResponse(JSONObject response);
+    public void successResponseString(String response);
     public void error();
 }

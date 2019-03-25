@@ -193,6 +193,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
 
             @Override
+            public void successResponseString(String response) {
+
+            }
+
+            @Override
             public void error() {
                 progressDialog.dismiss();
             }

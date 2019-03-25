@@ -127,9 +127,10 @@ public class ApiController {
                         Log.e("===========", "   "+response.toString());
                         JSONObject obj = null;
                         try {
-                            obj = new JSONObject(response);
-                            mNetworkCallBack.successResponse(obj);
-                        } catch (JSONException e) {
+                            mNetworkCallBack.successResponseString(response);
+//                            obj = new JSONObject(response);
+//                            mNetworkCallBack.successResponse(obj);
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
 
