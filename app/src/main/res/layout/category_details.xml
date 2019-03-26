@@ -62,6 +62,7 @@ Aliquam ultrices nec neque a semper. Etiam sagittis nibh eget purus gravida, ege
         android:background="#F5F5F5"
         >
         <LinearLayout
+            android:id="@+id/ll_like"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -94,6 +95,7 @@ Aliquam ultrices nec neque a semper. Etiam sagittis nibh eget purus gravida, ege
                 android:background="@mipmap/share"
                 /></LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_fav"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
