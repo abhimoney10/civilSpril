@@ -19,6 +19,7 @@
             android:layout_above="@+id/my_recycler_view"
             android:background="@mipmap/girl">
             <RelativeLayout
+                android:id="@+id/rl_top_bg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -42,6 +43,7 @@
                         android:hint="Search" />
 
                     <ImageView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
