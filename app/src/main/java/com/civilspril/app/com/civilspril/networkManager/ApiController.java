@@ -128,8 +128,8 @@ public class ApiController {
                         JSONObject obj = null;
                         try {
                             mNetworkCallBack.successResponseString(response);
-//                            obj = new JSONObject(response);
-//                            mNetworkCallBack.successResponse(obj);
+                            obj = new JSONObject(response);
+                            mNetworkCallBack.successResponse(obj);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

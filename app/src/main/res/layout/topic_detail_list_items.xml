@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#ffffff"
     android:layout_marginBottom="8dp"
-    android:layout_height="wrap_content">
+   >
 
-    <ImageView
-        android:id="@+id/img"
+    <!--<ImageView-->
+        <!--android:id="@+id/img"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--android:background="@mipmap/poltical"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@mipmap/poltical"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
+        android:layout_above="@+id/ll_bottom"
+     />
+<!-- <TextView
+    android:id="@+id/tv_body"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
 
-        android:text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit mollis nisi a fermentum. Phasellus ornare eu massa quis interdum. Integer imperdiet odio vitae risus varius, a euismod nulla molestie. Nam elit tellus, placerat et bibendum quis, luctus sed tellus. Nam at porta ipsum, vel elementum nunc. Duis a ante consequat, ultricies quam id, suscipit lorem. Mauris auctor mauris dui, nec eleifend sapien rutrum ut. Sed vulputate, arcu non placerat pellentesque, libero diam euismod metus, a cursus augue erat at sapien. Etiam fringilla odio diam, sit amet aliquam dolor egestas ac.
+    android:text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit mollis nisi a fermentum. Phasellus ornare eu massa quis interdum. Integer imperdiet odio vitae risus varius, a euismod nulla molestie. Nam elit tellus, placerat et bibendum quis, luctus sed tellus. Nam at porta ipsum, vel elementum nunc. Duis a ante consequat, ultricies quam id, suscipit lorem. Mauris auctor mauris dui, nec eleifend sapien rutrum ut. Sed vulputate, arcu non placerat pellentesque, libero diam euismod metus, a cursus augue erat at sapien. Etiam fringilla odio diam, sit amet aliquam dolor egestas ac.
 
 Aliquam ultrices nec neque a semper. Etiam sagittis nibh eget purus gravida, eget pulvinar metus viverra. Fusce vel accumsan enim, id maximus magna. Proin aliquet eros massa, at porta lacus finibus et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer eget ultrices leo, ut posuere dolor. Sed aliquam magna nec nisi porttitor viverra. Fusce aliquam facilisis faucibus. Pellentesque eu pretium purus. Suspendisse semper placerat vestibulum. Aliquam quis lectus at tortor ultrices vestibulum. Vestibulum laoreet finibus enim sit amet dictum. Duis convallis purus eget tellus porta egestas. Aliquam vestibulum vitae ex nec sodales. Proin tincidunt arcu et felis placerat, nec faucibus nisl pretium. "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/img" />-->
 
     <LinearLayout
+        android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/tv_body"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+
         android:background="#F5F5F5"
         >
         <LinearLayout
@@ -85,4 +92,6 @@ Aliquam ultrices nec neque a semper. Etiam sagittis nibh eget purus gravida, ege
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.civilspril.app.R;
 import com.civilspril.app.com.civilspril.adapter.TopicAdapter;
@@ -29,6 +30,7 @@ public class TodaySpiralFragment extends Fragment {
     private View mView;
     private RecyclerView my_recycler_view;
     private TopicAdapter mTopicAdapter;
+
 
     @Nullable
     @Override

@@ -1,6 +1,7 @@
 package com.civilspril.app.com.civilspril.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.civilspril.app.R;
 import com.civilspril.app.com.civilspril.activities.BaseActivity;
+import com.civilspril.app.com.civilspril.activities.CategoryDetails;
 import com.civilspril.app.com.civilspril.beans.Categories;
 import com.civilspril.app.com.civilspril.beans.CategoryList;
 import com.civilspril.app.com.civilspril.fragments.TodaySpiralDetailFragment;
@@ -60,9 +62,14 @@ public class TopicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TodaySpiralDetailFragment fragment = new TodaySpiralDetailFragment();
-                    fragment.setTitle(txtview.getText().toString());
-                    ((BaseActivity)context).addFragment(fragment,"todaySpiral" );
+
+
+                            Intent intent = new Intent(context,CategoryDetails.class);
+                            intent.putExtra(CategoryDetails.NAME, txtview.getText());
+                    context.startActivity(intent);
+//                    TodaySpiralDetailFragment fragment = new TodaySpiralDetailFragment();
+//                    fragment.setTitle(txtview.getText().toString());
+//                    ((BaseActivity)context).addFragment(fragment,"todaySpiral" );
                 }
             });
         }

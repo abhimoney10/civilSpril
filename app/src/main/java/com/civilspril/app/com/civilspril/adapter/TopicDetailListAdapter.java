@@ -10,13 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.civilspril.app.R;
-import com.civilspril.app.com.civilspril.activities.BaseActivity;
-import com.civilspril.app.com.civilspril.fragments.TodaySpiralDetailFragment;
 
 public class TopicDetailListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String[] topic = {"Political","Social","Enviroment","IR","Science","Culture","Economy","History","Others"};
@@ -30,7 +27,7 @@ public class TopicDetailListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-         itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.topiv_detail_list_items, parent, false);
+         itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.topic_detail_list_items, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -54,7 +51,7 @@ public class TopicDetailListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         public MyViewHolder(View view) {
             super(view);
 //            imageView=(ImageView) view.findViewById(R.id.imageView);
-            txtview= view.findViewById(R.id.tv_body);
+          //  txtview= view.findViewById(R.id.tv_body);
             ll_comment = view.findViewById(R.id.ll_comment);
             ll_share = view.findViewById(R.id.ll_share);
             ll_comment.setOnClickListener(new View.OnClickListener() {
