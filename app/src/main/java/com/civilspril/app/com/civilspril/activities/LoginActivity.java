@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -12,8 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.civilspril.app.R;
+import com.civilspril.app.com.civilspril.beans.CategoryList;
+import com.civilspril.app.com.civilspril.beans.LoginData;
 import com.civilspril.app.com.civilspril.networkManager.ApiController;
 import com.civilspril.app.com.civilspril.networkManager.NetworkCallBack;
+import com.civilspril.app.com.civilspril.utilsFunctions.SaveDataManager;
 import com.civilspril.app.com.civilspril.utilsFunctions.URLConstant;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -29,9 +33,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -48,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView tv_skip;
     private CallbackManager callbackManager;
     private ProgressDialog progressDialog;
+    private SaveDataManager saveDataManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +72,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     private void initData(){
 
+        saveDataManager = SaveDataManager.getInstance(this);
+        if(!TextUtils.isEmpty(saveDataManager.getToken())){
+            Intent in = new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(in);
+            finish();
+        }
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setMessage("Please wait..");
         progressDialog.setIndeterminate(true);
@@ -185,11 +198,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         apiController.postJsonRequest(URLConstant.LOGIN_URL, jsonString, new NetworkCallBack() {
             @Override
-            public void successResponse(JSONObject response) {
+            public void successResponse(JSONObject jsonObject) {
                 progressDialog.dismiss();
-                Intent in = new Intent(LoginActivity.this,HomeActivity.class);
-                startActivity(in);
-                finish();
+                Gson gson = new Gson();
+                LoginData mLoginData = gson.fromJson(jsonObject.toString(), LoginData.class);
+                Log.e("==========", " "+mLoginData.getToken());
+        if(mLoginData!=null && mLoginData.getToken()!=null){
+            saveDataManager.setUserId(mLoginData.getId());
+            saveDataManager.setUserName(mLoginData.getName());
+            saveDataManager.setUserEmail(mLoginData.getEmail());
+            saveDataManager.setToken(mLoginData.getToken());
+    Intent in = new Intent(LoginActivity.this, HomeActivity.class);
+    startActivity(in);
+    finish();
+            }
             }
 
             @Override

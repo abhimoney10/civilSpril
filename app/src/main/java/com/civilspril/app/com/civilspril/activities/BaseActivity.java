@@ -1,5 +1,6 @@
 package com.civilspril.app.com.civilspril.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,8 +42,14 @@ public class BaseActivity extends AppCompatActivity {
                     return true;
                 case R.id.saved_spiral:
                    // mTextMessage.setText(R.string.title_dashboard);
+                    Intent intent = new Intent(BaseActivity.this, FavoriteDataList.class);
+                    intent.putExtra(CategoryDetails.NAME, "SAVED SPIRAL");
+                    startActivity(intent);
                     return true;
                 case R.id.premium_quiz:
+                    Intent intent1 = new Intent(BaseActivity.this, QuizDataList.class);
+                    intent1.putExtra(CategoryDetails.NAME, "PREMIUM QUIZ");
+                    startActivity(intent1);
                    // mTextMessage.setText(R.string.title_notifications);
                     return true;
                 case R.id.spiral_profile:
